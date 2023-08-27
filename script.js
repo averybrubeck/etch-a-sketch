@@ -5,11 +5,11 @@ const gridItem = document.querySelector('.grid-item')
 
 function createGridItem(){
     const newItem = document.createElement('div');
-    newItem.classList.add('grid-item-new');
+    newItem.classList.add('grid-item');
     return newItem
 }
-function addGridItem(content){
-    const newItem = createGridItem(content);
+function addGridItem(){
+    const newItem = createGridItem();
     grid.appendChild(newItem);
 }
 function generateGrid(rows){
@@ -18,24 +18,19 @@ function generateGrid(rows){
     }
 }
 //desired number -2, rows of 8
-
-
-function getMouse(){
-    const newGridItem = document.querySelectorAll('grid-item-new')
-           console.log(newGridItem)
-    }
-function clearSquare(){
-        const resetButton = document.querySelector('.reset-button')
-        resetButton.addEventListener('click', function(){
-        gridItem.style.backgroundColor = 'white'
-    })
-}
-
-
-
-
-clearSquare()
-
-
-getMouse()
 generateGrid(62);
+function colorGrid(){
+            let newGridItem = document.querySelectorAll('.grid-item'); 
+            const resetButton = document.querySelector('.reset-button')
+            
+            newGridItem.forEach(gridItem => {
+                gridItem.addEventListener('mouseover', function() {
+                    gridItem.style.backgroundColor='red';
+                    console.log(newGridItem, this)
+                })
+                resetButton.addEventListener('click', function(){  
+                    gridItem.style.backgroundColor = 'white'
+                })
+            })
+        }
+colorGrid();
