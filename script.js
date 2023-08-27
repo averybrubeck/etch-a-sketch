@@ -7,15 +7,16 @@ function createGridItem(content){
     return newItem
 }
 
-function makeGrid(content){
+function addGridItem(content){
     const newItem = createGridItem(content);
     grid.appendChild(newItem);
 }
 
-function moreGrid(rows){
+function generateGrid(rows){
     for(let i = 0; i <= rows; i++){
-        
-        makeGrid();
+        addGridItem();
     }
 }
-moreGrid(24);
+
+//desired number -2
+generateGrid(62);
