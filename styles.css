@@ -1,0 +1,12 @@
+.grid {
+  display: inline-grid;
+ 
+   
+   
+    border: 2px solid black;
+}
+
+.grid-item {
+    border: 2px solid black;
+    display: grid;
+}
