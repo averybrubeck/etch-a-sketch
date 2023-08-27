@@ -3,6 +3,7 @@ const container = document.querySelector('#container');
 const gridItem = document.querySelector('.grid-item')
 
 
+
 function createGridItem(){
     const newItem = document.createElement('div');
     newItem.classList.add('grid-item');
@@ -26,11 +27,13 @@ function colorGrid(){
             newGridItem.forEach(gridItem => {
                 gridItem.addEventListener('mouseover', function() {
                     gridItem.style.backgroundColor='red';
-                    console.log(newGridItem, this)
+                    
                 })
                 resetButton.addEventListener('click', function(){  
                     gridItem.style.backgroundColor = 'white'
                 })
             })
-        }
+}
 colorGrid();
+
+const test = document.querySelector('.2x2');
