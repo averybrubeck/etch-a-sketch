@@ -1,7 +1,9 @@
 const grid = document.querySelector('#grid');
 const container = document.querySelector('#container');
 const gridItem = document.querySelector('.grid-item')
-
+const eightXButton = document.querySelector('.grid-size-one')
+const fourXButton = document.querySelector('.grid-size-two')
+const twoXButton = document.querySelector('.grid-size-three')
 
 
 function createGridItem(){
@@ -13,13 +15,29 @@ function addGridItem(){
     const newItem = createGridItem();
     grid.appendChild(newItem);
 }
-function generateGrid(rows){
-    for(let i = 0; i <= rows; i++){
-        addGridItem();
-    }
+function generateGrid(){
+    eightXButton.addEventListener('click', function(){
+        for(let i = 0; i <= 62; i++){
+            addGridItem();
+         }
+         colorGrid();
+    })
+    fourXButton.addEventListener('click', function(){
+        for(let i = 0; i <= 14; i++){
+            addGridItem();
+         }
+         colorGrid();
+    })
+    twoXButton.addEventListener('click', function(){
+        for(let i = 0; i <= 6; i++){
+            addGridItem();
+         }
+         colorGrid();
+    })
+
 }
 //desired number -2, rows of 8
-generateGrid(62);
+
 function colorGrid(){
             let newGridItem = document.querySelectorAll('.grid-item'); 
             const resetButton = document.querySelector('.reset-button')
@@ -34,6 +52,5 @@ function colorGrid(){
                 })
             })
 }
-colorGrid();
+generateGrid();
 
-const test = document.querySelector('.2x2');
