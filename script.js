@@ -44,7 +44,7 @@ function generateGrid(){
         if(!clicked){
             for(let i = 0; i <= 7; i++){
                 addGridItem();     
-        } clicked = true;
+        } //clicked = true;
          }
          selectNewGridItem(); 
          colorGrid(); 
@@ -57,7 +57,7 @@ function colorGrid(){
     
     newGridItem.forEach(gridItem => {
         gridItem.addEventListener('mouseover', function() {
-            gridItem.style.backgroundColor='red';
+            gridItem.style.backgroundColor='blue';
         })
         resetButton.addEventListener('click', function(){  
             gridItem.style.backgroundColor = 'white'
