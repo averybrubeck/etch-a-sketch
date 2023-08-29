@@ -8,33 +8,44 @@ let clicked = false;
 
 function createGridItem(){
     const newItem = document.createElement('div');
-    newItem.classList.add('grid-item');
-    
+    newItem.classList.add('grid-item'); 
     return newItem
 }
 function addGridItem(){
     const newItem = createGridItem();
     grid.appendChild(newItem);
 }
+function selectNewGridItem(){
+    let newGridItem = document.querySelectorAll('.grid-item')
+    newGridItem.forEach(gridItem => {
+        gridItem.style.backgroundColor='white';
+    })
+}
+function initialGeneration(){
+    for(let i = 0; i <= 62; i++){
+        addGridItem();
+    } selectNewGridItem();
+}
 function generateGrid(){
-    eightXButton.addEventListener('click', function(){
+    /*eightXButton.addEventListener('click', function(){
         if(!clicked){
-            for(let i = 0; i <= 62; i++){
+            for(let i = 0; i <= 63; i++){
                 addGridItem();
             }
             clicked = true;
         }
         colorGrid(); 
-    })
+    }) */
     twoXButton.addEventListener('click', function(){
         if(!clicked){
             for(let i = 0; i <= 7; i++){
-                addGridItem();
-        }
-            clicked = true;
-        }
-        colorGrid(); 
+                addGridItem();     
+        } clicked = true;
+         }
+         selectNewGridItem(); 
+         colorGrid(); 
     })
+    colorGrid();
 }
 function colorGrid(){
     let newGridItem = document.querySelectorAll('.grid-item'); 
@@ -50,5 +61,6 @@ function colorGrid(){
         })
     })
 }
+initialGeneration();
 generateGrid();
 

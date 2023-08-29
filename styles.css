@@ -1,3 +1,14 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-image: url('./images/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg');
+    background-size: cover;
+}
+button {
+    padding: 5px;
+    border-radius: 7.5px;
+}
 #container {
     display: flex;
     flex-direction: column;
