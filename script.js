@@ -15,6 +15,10 @@ function addGridItem(){
     const newItem = createGridItem();
     grid.appendChild(newItem);
 }
+//use string ""
+function changeGrid(columns){
+    grid.style.gridTemplateColumns=columns;
+}
 function selectNewGridItem(){
     let newGridItem = document.querySelectorAll('.grid-item')
     newGridItem.forEach(gridItem => {
@@ -58,9 +62,12 @@ function colorGrid(){
         resetButton.addEventListener('click', function(){  
             gridItem.style.backgroundColor = 'white'
             clicked = false;
+            //changeGrid("50px 50px 50px 50px")
         })
     })
 }
+
+
 initialGeneration();
 generateGrid();
 
