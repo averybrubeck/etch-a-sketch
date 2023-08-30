@@ -21,13 +21,22 @@ function changeGrid(columns){
 }
 function clearBoard(){
     const board = document.querySelectorAll('.grid-item');
-    const test = document.querySelector('.test')
-
+    const test = document.querySelector('.clear-button');
     test.addEventListener('click', function(){ 
         board.forEach(function(board){
             board.remove();
         })
-})
+    })
+}
+function eightBy(){
+    const button = document.querySelector('.test')
+    button.addEventListener('click', function(){
+        for(let i = 0; i <= 63; i++){
+            addGridItem();
+        } selectNewGridItem();
+            clearBoard();
+            colorGrid();
+    })
 }
 function selectNewGridItem(){
     let newGridItem = document.querySelectorAll('.grid-item')
@@ -57,9 +66,9 @@ function generateGrid(){
         } //clicked = true;
          }
          selectNewGridItem(); 
-         colorGrid(); 
+         colorGrid();
+         clearBoard(); 
     })
-    colorGrid();
 }
 function colorGrid(){
     let newGridItem = document.querySelectorAll('.grid-item'); 
@@ -80,3 +89,4 @@ function colorGrid(){
 initialGeneration();
 generateGrid();
 clearBoard();
+eightBy();
