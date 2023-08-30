@@ -1,9 +1,7 @@
 const grid = document.querySelector('#grid');
 const container = document.querySelector('#container');
 const gridItem = document.querySelector('.grid-item');
-const eightXButton = document.querySelector('.grid-size-one');
-const fourXButton = document.querySelector('.grid-size-two');
-const twoXButton = document.querySelector('.grid-size-three');
+const newLine = document.querySelector('.new-line');
 let clicked = false;
 
 function createGridItem(){
@@ -14,6 +12,17 @@ function createGridItem(){
 function addGridItem(){
     const newItem = createGridItem();
     grid.appendChild(newItem);
+}
+function selectNewGridItem(){
+    let newGridItem = document.querySelectorAll('.grid-item')
+    newGridItem.forEach(gridItem => {
+        gridItem.style.backgroundColor='white';
+    })
+}
+function initialGeneration(){
+    for(let i = 0; i <= 62; i++){
+        addGridItem();
+    } selectNewGridItem();
 }
 //use string ""
 function changeGrid(columns){
@@ -29,41 +38,22 @@ function clearBoard(){
     })
 }
 function eightBy(){
-    const button = document.querySelector('.test')
+    const button = document.querySelector('.eight-by')
     button.addEventListener('click', function(){
+        
         for(let i = 0; i <= 63; i++){
             addGridItem();
         } selectNewGridItem();
-            clearBoard();
-            colorGrid();
+          clearBoard();
+          colorGrid();
     })
-}
-function selectNewGridItem(){
-    let newGridItem = document.querySelectorAll('.grid-item')
-    newGridItem.forEach(gridItem => {
-        gridItem.style.backgroundColor='white';
-    })
-}
-function initialGeneration(){
-    for(let i = 0; i <= 62; i++){
-        addGridItem();
-    } selectNewGridItem();
 }
 function generateGrid(){
-    /*eightXButton.addEventListener('click', function(){
-        if(!clicked){
-            for(let i = 0; i <= 63; i++){
-                addGridItem();
-            }
-            clicked = true;
-        }
-        colorGrid(); 
-    }) */
-    twoXButton.addEventListener('click', function(){
+    newLine.addEventListener('click', function(){
         if(!clicked){
             for(let i = 0; i <= 7; i++){
                 addGridItem();     
-        } //clicked = true;
+        }
          }
          selectNewGridItem(); 
          colorGrid();
@@ -90,3 +80,4 @@ initialGeneration();
 generateGrid();
 clearBoard();
 eightBy();
+colorGrid();
