@@ -13,12 +13,6 @@ function addGridItem(){
     const newItem = createGridItem();
     grid.appendChild(newItem);
 }
-function selectNewGridItem(){
-    let newGridItem = document.querySelectorAll('.grid-item')
-    newGridItem.forEach(gridItem => {
-        gridItem.style.backgroundColor='white';
-    })
-}
 function generateGrid(){
     newLine.addEventListener('click', function(){
         if(!clicked){
@@ -36,9 +30,29 @@ function initialGeneration(){
         addGridItem();
     } selectNewGridItem();
 }
+function selectNewGridItem(){
+    let newGridItem = document.querySelectorAll('.grid-item')
+    newGridItem.forEach(gridItem => {
+        gridItem.style.backgroundColor='white';
+    })
+}
 //use string ""
 function changeGrid(columns){
     grid.style.gridTemplateColumns=columns;
+}
+function colorGrid(){
+    let newGridItem = document.querySelectorAll('.grid-item'); 
+    const resetButton = document.querySelector('.reset-button')
+    
+    newGridItem.forEach(gridItem => {
+        gridItem.addEventListener('mouseover', function() {
+            gridItem.style.backgroundColor='blue';
+        })
+        resetButton.addEventListener('click', function(){  
+            gridItem.style.backgroundColor = 'white'
+            clicked = false;
+        })
+    })
 }
 function clearBoard(){
     const board = document.querySelectorAll('.grid-item');
@@ -70,21 +84,6 @@ function twelveBy(){
         } selectNewGridItem();
           clearBoard();
           colorGrid();
-    })
-}
-
-function colorGrid(){
-    let newGridItem = document.querySelectorAll('.grid-item'); 
-    const resetButton = document.querySelector('.reset-button')
-    
-    newGridItem.forEach(gridItem => {
-        gridItem.addEventListener('mouseover', function() {
-            gridItem.style.backgroundColor='blue';
-        })
-        resetButton.addEventListener('click', function(){  
-            gridItem.style.backgroundColor = 'white'
-            clicked = false;
-        })
     })
 }
 
