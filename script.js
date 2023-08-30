@@ -8,7 +8,7 @@ let clicked = false;
 
 function createGridItem(){
     const newItem = document.createElement('div');
-    newItem.classList.add('grid-item'); 
+     newItem.classList.add('grid-item'); 
     return newItem
 }
 function addGridItem(){
@@ -18,6 +18,16 @@ function addGridItem(){
 //use string ""
 function changeGrid(columns){
     grid.style.gridTemplateColumns=columns;
+}
+function clearBoard(){
+    const board = document.querySelectorAll('.grid-item');
+    const test = document.querySelector('.test')
+
+    test.addEventListener('click', function(){ 
+        board.forEach(function(board){
+            board.remove();
+        })
+})
 }
 function selectNewGridItem(){
     let newGridItem = document.querySelectorAll('.grid-item')
@@ -62,7 +72,6 @@ function colorGrid(){
         resetButton.addEventListener('click', function(){  
             gridItem.style.backgroundColor = 'white'
             clicked = false;
-            //changeGrid("50px 50px 50px 50px")
         })
     })
 }
@@ -70,4 +79,4 @@ function colorGrid(){
 
 initialGeneration();
 generateGrid();
-
+clearBoard();
