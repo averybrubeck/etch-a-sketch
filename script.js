@@ -19,6 +19,18 @@ function selectNewGridItem(){
         gridItem.style.backgroundColor='white';
     })
 }
+function generateGrid(){
+    newLine.addEventListener('click', function(){
+        if(!clicked){
+            for(let i = 0; i <= 7; i++){
+                addGridItem();     
+        }
+         }
+         selectNewGridItem(); 
+         colorGrid();
+         clearBoard(); 
+    })
+}
 function initialGeneration(){
     for(let i = 0; i <= 62; i++){
         addGridItem();
@@ -40,7 +52,7 @@ function clearBoard(){
 function eightBy(){
     const button = document.querySelector('.eight-by')
     button.addEventListener('click', function(){
-        
+        changeGrid('50px 50px 50px 50px 50px 50px 50px 50px')
         for(let i = 0; i <= 63; i++){
             addGridItem();
         } selectNewGridItem();
@@ -48,18 +60,19 @@ function eightBy(){
           colorGrid();
     })
 }
-function generateGrid(){
-    newLine.addEventListener('click', function(){
-        if(!clicked){
-            for(let i = 0; i <= 7; i++){
-                addGridItem();     
-        }
-         }
-         selectNewGridItem(); 
-         colorGrid();
-         clearBoard(); 
+function twelveBy(){
+    const button = document.querySelector('.twelve-by')
+    button.addEventListener('click', function(){
+        clearBoard();
+        changeGrid('50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px')
+        for(let i = 0; i <= 143; i++){
+            addGridItem();
+        } selectNewGridItem();
+          clearBoard();
+          colorGrid();
     })
 }
+
 function colorGrid(){
     let newGridItem = document.querySelectorAll('.grid-item'); 
     const resetButton = document.querySelector('.reset-button')
@@ -75,7 +88,7 @@ function colorGrid(){
     })
 }
 
-
+twelveBy();
 initialGeneration();
 generateGrid();
 clearBoard();
