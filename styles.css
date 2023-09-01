@@ -17,7 +17,8 @@ button {
     justify-content: center;
     align-items: center;
     background-color: #fa8072;
-    width: 660px;
+    width: auto;
+    padding: 20px;
     border-radius: 30px;
 }
 
@@ -43,7 +44,11 @@ button {
 
 
 .reset {
-    margin-top: 20px;
- 
+    margin-top: 20px; 
+}
+.eight-by-grid {
+    display: inline-grid;
 }   
-
+.twelve-by-grid {
+    display: inline-grid;
+}
