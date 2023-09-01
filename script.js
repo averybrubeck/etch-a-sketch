@@ -1,9 +1,10 @@
 const grid = document.querySelector('#grid');
 const container = document.querySelector('#container');
 const gridItem = document.querySelector('.grid-item');
-const newLine = document.querySelector('.new-line8');
-const newLine1 = document.querySelector('.new-line12');
-let clicked = false;
+
+
+let clicked8 = false;
+let clicked12 = true;
 
 function createGridItem(){
     const newItem = document.createElement('div');
@@ -15,6 +16,8 @@ function addGridItem(){
     grid.appendChild(newItem);
 }
 function newLine8x(){
+    const newLine = document.querySelector('.new-line8');
+
     newLine.addEventListener('click', function(){
         if(!clicked){
             for(let i = 0; i <= 7; i++){
@@ -26,11 +29,13 @@ function newLine8x(){
     })
 }
 function newLine12x(){
+    const newLine1 = document.querySelector('.new-line12');
+
     newLine1.addEventListener('click', function(){
-        if(!clicked){
+        
             for(let i = 0; i <= 11; i++){
                 addGridItem();     
-        }
+
          }
          selectNewGridItem(); 
          colorGrid(); 
@@ -71,7 +76,6 @@ function clearBoard() {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 }
-
 function eightBy(){
     clearBoard();
 
@@ -85,10 +89,9 @@ function eightBy(){
         }
         selectNewGridItem()
         colorGrid()
+        clicked12 = true;
     }
 )}        
-
-
 function twelveBy() {
     clearBoard();
 
@@ -102,6 +105,7 @@ function twelveBy() {
         }       
         selectNewGridItem();
         colorGrid();
+        clicked12 = false;
     });
 }
 
